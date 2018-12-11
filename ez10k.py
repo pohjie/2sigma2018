@@ -5,6 +5,10 @@
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 
+# Mean reversion libraries
+import statsmodels.tsa.stattools as ts
+from datetime import datetime
+
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
@@ -20,3 +24,6 @@ env = twosigmanews.make_env()
 # returns tuple of market and news training data
 (market_train_df, news_train_df) = env.get_training_data()
 
+# get a list of unique names
+names = market_train_df['assetCode'].unique().tolist()
+print(names)
