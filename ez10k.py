@@ -26,4 +26,8 @@ env = twosigmanews.make_env()
 
 # get a list of unique names
 names = market_train_df['assetCode'].unique().tolist()
-print(names)
+
+# Augmented Dickey-Fuller (ADF) Test
+# Test statistic should be smaller than critical values
+interested = market_train_df.loc[market_train_df['assetCode'] == names[0]]
+print(ts.adfuller(interested['close'], 1))
